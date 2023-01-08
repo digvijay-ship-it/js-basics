@@ -2,12 +2,22 @@
 
 fatchBtn.addEventListener('click', buttonClickHandler)
 */
+document.getElementById("prBtn").disabled = true;
 
 var counter = 0;
-let viewdata;
+var viewdata;
 
+function displayData(counter) {
+  console.log(viewdata["examdata"][counter])
+}
+function datafiller(counter) {
+  let question = document.getElementById("QueFill")
+  question.innerHTML = viewdata["examdata"][counter]["question"]["question"]
+}
 function nextButtonClicked() {
   counter++
+  displayData(counter)
+  datafiller(counter)
   console.log(counter + "nextfun")
   if (counter > 0) {
     buttonEnabler("prBtn")
@@ -22,6 +32,8 @@ function nextButtonClicked() {
 }
 function prewButtonClicked() {
   counter--
+  displayData(counter)
+  datafiller(counter)
   console.log(counter + "prewfun")
   if (counter < 4) {
     buttonEnabler("neBtn")
@@ -34,7 +46,6 @@ function prewButtonClicked() {
     buttonEnabler("prBtn")
   }
 }
-document.getElementById("prBtn").disabled = true;
 function buttonDisabler(btnname) {
   //make prew button disabled
   document.getElementById(btnname).disabled = true;
@@ -47,6 +58,7 @@ function buttonEnabler(btnname) {
 
 function buttonClickHandler() {
   const xhr = new XMLHttpRequest();
+  document.getElementById("fatchBtn").hidden = true
   /*    //
     xhr.onprogress = function () {
         console.log('On progress');
@@ -55,22 +67,27 @@ function buttonClickHandler() {
 
   xhr.onload = function () {
     if (this.status === 200) {
-      let jsonData = JSON.parse(this.responseText);
-      viewdata = jsonData;
-      console.log("display json", jsonData);
-      console.log(jsonData[0])
+      viewdata = JSON.parse(this.responseText);
+      // viewdata = jsonData;
+      console.log("display json", viewdata);
       // console.log(this.responseText);
 
       // console.log(this.responseText);
-      console.log(jsonData["examdata"][0]["question"]["id"])
+      displayData(0)
+      datafiller(0)
+
+      console.log(viewdata["examdata"][0]["question"]["id"])
     }
     else {
       console.log("some error acuured")
     }
   }
 
+
+
+
   //open the obj
-  xhr.open('GET', `Gan.txt`, true);
+  xhr.open('GET', `Gan.txt`, false);
   // Send the Request
   xhr.send();
 }
