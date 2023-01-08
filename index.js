@@ -8,11 +8,33 @@ var counter = 0;
 var viewdata;
 
 function displayData(counter) {
-  console.log(viewdata["examdata"][counter])
+  //console.log(viewdata["examdata"][counter])
 }
 function datafiller(counter) {
+  // let opCounter = 0;
   let question = document.getElementById("QueFill")
+  let optionTag = document.getElementById("opFill")
   question.innerHTML = viewdata["examdata"][counter]["question"]["question"]
+  // question.innerHTML = viewdata["examdata"][counter]["optionsList"][3]["question"]
+
+  for (let i = 0; i < viewdata["examdata"][counter]["optionsList"].length; i++) {
+    optionTag.innerHTML += `
+    <label for="${viewdata["examdata"][counter]["optionsList"][i]["option"]}">${viewdata["examdata"][counter]["optionsList"][i]["option"]}</label>
+    <input for="${viewdata["examdata"][counter]["result"]["Users_Answer"]} type="radio" name="${counter}" value="${viewdata["examdata"][counter]["optionsList"]["Id"]}" disabled>
+    `
+    console.log(viewdata["examdata"][counter]["optionsList"][i]["option"])
+
+  }
+
+  // viewdata["examdata"][counter]["optionsList"].forEach(element => {
+  //   optionTag.innerHTML = `
+  // <input for="${element.result.Users_Answer} type="radio" name="${element.QuestionId}" value="${element.Id}">
+  // 						<label for="${element.option}">${element.option}</label>
+  // `
+  // console.log(element.option)
+  // console.log(element)
+  console.log("loop hit again")
+  // });
 }
 function nextButtonClicked() {
   counter++
@@ -69,14 +91,14 @@ function buttonClickHandler() {
     if (this.status === 200) {
       viewdata = JSON.parse(this.responseText);
       // viewdata = jsonData;
-      console.log("display json", viewdata);
+      // console.log("display json", viewdata);
       // console.log(this.responseText);
 
       // console.log(this.responseText);
       displayData(0)
       datafiller(0)
 
-      console.log(viewdata["examdata"][0]["question"]["id"])
+      // console.log(viewdata["examdata"][0]["question"]["id"])
     }
     else {
       console.log("some error acuured")
