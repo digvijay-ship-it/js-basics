@@ -1,0 +1,160 @@
+{
+  "examdata": [
+    {
+      "question": {
+        "id": 12,
+        "question": "1. How many Bytes are stored by \u2018Long\u2019 Data type in C# .net?",
+        "isActive": true,
+        "subjectId": 10,
+        "subject": null,
+        "answer": 50
+      },
+      "optionsList": [
+        {
+          "id": 50,
+          "option": "8",
+          "questionId": 12,
+          "question": {
+            "id": 12,
+            "question": "1. How many Bytes are stored by \u2018Long\u2019 Data type in C# .net?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 50
+          }
+        },
+        {
+          "id": 51,
+          "option": "4",
+          "questionId": 12,
+          "question": {
+            "id": 12,
+            "question": "1. How many Bytes are stored by \u2018Long\u2019 Data type in C# .net?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 50
+          }
+        },
+        {
+          "id": 52,
+          "option": "2",
+          "questionId": 12,
+          "question": {
+            "id": 12,
+            "question": "1. How many Bytes are stored by \u2018Long\u2019 Data type in C# .net?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 50
+          }
+        },
+        {
+          "id": 53,
+          "option": "1",
+          "questionId": 12,
+          "question": {
+            "id": 12,
+            "question": "1. How many Bytes are stored by \u2018Long\u2019 Data type in C# .net?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 50
+          }
+        }
+      ],
+      "result": {
+        "id": 0,
+        "userId": 0,
+        "user": null,
+        "subjectId": 0,
+        "subject": null,
+        "questionId": 0,
+        "question": null,
+        "answer": 0,
+        "users_Answer": null,
+        "wasCurrect": false,
+        "date": "2023-01-06T15:38:40.4910103+05:30"
+      },
+      "subId": 10
+    },
+    {
+      "question": {
+        "id": 14,
+        "question": "3. Correct Declaration of Values to variables \u2018a\u2019 and \u2018b\u2019?",
+        "isActive": true,
+        "subjectId": 10,
+        "subject": null,
+        "answer": 60
+      },
+      "optionsList": [
+        {
+          "id": 58,
+          "option": "a) int a = 32, b = 40.6;",
+          "questionId": 14,
+          "question": {
+            "id": 14,
+            "question": "3. Correct Declaration of Values to variables \u2018a\u2019 and \u2018b\u2019?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 60
+          }
+        },
+        {
+          "id": 59,
+          "option": "b) int a = 42; b = 40;",
+          "questionId": 14,
+          "question": {
+            "id": 14,
+            "question": "3. Correct Declaration of Values to variables \u2018a\u2019 and \u2018b\u2019?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 60
+          }
+        },
+        {
+          "id": 60,
+          "option": "c) int a = 32; int b = 40;",
+          "questionId": 14,
+          "question": {
+            "id": 14,
+            "question": "3. Correct Declaration of Values to variables \u2018a\u2019 and \u2018b\u2019?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 60
+          }
+        },
+        {
+          "id": 61,
+          "option": "d) int a = b = 42;",
+          "questionId": 14,
+          "question": {
+            "id": 14,
+            "question": "3. Correct Declaration of Values to variables \u2018a\u2019 and \u2018b\u2019?",
+            "isActive": true,
+            "subjectId": 10,
+            "subject": null,
+            "answer": 60
+          }
+        }
+      ],
+      "result": {
+        "id": 0,
+        "userId": 0,
+        "user": null,
+        "subjectId": 0,
+        "subject": null,
+        "questionId": 0,
+        "question": null,
+        "answer": 0,
+        "users_Answer": null,
+        "wasCurrect": false,
+        "date": "2023-01-06T15:38:40.4941248+05:30"
+      },
+      "subId": 10
+    }
+  ]
+}
