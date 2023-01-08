@@ -14,15 +14,18 @@ function datafiller(counter) {
   // let opCounter = 0;
   let question = document.getElementById("QueFill")
   let optionTag = document.getElementById("opFill")
+  // let op = optionTag.getElementById(1);
   question.innerHTML = viewdata["examdata"][counter]["question"]["question"]
   // question.innerHTML = viewdata["examdata"][counter]["optionsList"][3]["question"]
 
   for (let i = 0; i < viewdata["examdata"][counter]["optionsList"].length; i++) {
-    optionTag.innerHTML += `
-    <label for="${viewdata["examdata"][counter]["optionsList"][i]["option"]}">${viewdata["examdata"][counter]["optionsList"][i]["option"]}</label>
-    <input for="${viewdata["examdata"][counter]["result"]["Users_Answer"]} type="radio" name="${counter}" value="${viewdata["examdata"][counter]["optionsList"]["Id"]}" disabled>
+    document.getElementById(i.toString()).innerHTML = `
+      <label for="${viewdata["examdata"][counter]["optionsList"][i]["option"]}">${viewdata["examdata"][counter]["optionsList"][i]["option"]}</label>
+      <input type="radio" for="${viewdata["examdata"][counter]["result"]["Users_Answer"]} name="${viewdata["examdata"][counter]["question"]["id"]}" value="${viewdata["examdata"][counter]["optionsList"]["Id"]}">
     `
-    console.log(viewdata["examdata"][counter]["optionsList"][i]["option"])
+    console.log(counter)
+    // con
+    // console.log(viewdata["examdata"][counter]["optionsList"][i]["option"])
 
   }
 
@@ -33,7 +36,6 @@ function datafiller(counter) {
   // `
   // console.log(element.option)
   // console.log(element)
-  console.log("loop hit again")
   // });
 }
 function nextButtonClicked() {
@@ -109,7 +111,7 @@ function buttonClickHandler() {
 
 
   //open the obj
-  xhr.open('GET', `Gan.txt`, false);
+  xhr.open('GET', `Gan.txt`, true);
   // Send the Request
   xhr.send();
 }
