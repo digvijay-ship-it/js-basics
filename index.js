@@ -116,3 +116,12 @@ function buttonClickHandler() {
   // Send the Request
   xhr.send();
 }
+
+function SubmitData() {
+  console.log("dataposting")
+
+  const pxhr = new XMLHttpRequest();
+  pxhr.getResponseHeader('Content-type', 'application/json');
+  pxhr.open('POST', 'pGan.json', true);
+  pxhr.send(viewdata);
+}

@@ -17,6 +17,7 @@
     <h1>Ajax tutorial</h1>
     <button type="button" id="fatchBtn" onclick="buttonClickHandler()" class="btn btn-primary">Fetch Data</button>
     <form class="form">
+        <!-- action="home" -->
         <div id="fillDiv">
             <P id="QueFill"></P>
             <div id="opFill">
@@ -36,13 +37,10 @@
                 <button type="button" id="prBtn" onclick="prewButtonClicked()"
                     class="btn btn-secondary">Previous</button>
                 <button type="button" id="neBtn" onclick="nextButtonClicked()" class="btn btn-secondary">Next</button>
-                <button id="sub" type="submit">Submit</button>
-
+                <button id="sub" onclick="SubmitData()" type="submit">Submit</button>
             </div>
         </div>
     </form>
-
-
 
 
     <!-- Optional JavaScript -->
@@ -59,13 +57,11 @@
     <script src="index.js"></script>
 
     <script>
-        const formEl = document.querySelector('.form')
-        formEl.addEventListener('submit', event => {
-            event.preventDefault();
-
-            const formdata = new FormData(formEl)
-            console.log(formdata)
-        });
+        // const formEl = document.querySelector('.form')
+        // formEl.addEventListener('submit', () => {
+        //     const formdata = new FormData(formEl)
+        //     console.log(formdata)
+        // });
     </script>
 
 </body>
