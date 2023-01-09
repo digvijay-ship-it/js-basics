@@ -7,8 +7,9 @@ document.getElementById("prBtn").disabled = true;
 var counter = 0;
 var viewdata;
 
-function displayData(counter) {
-  //console.log(viewdata["examdata"][counter])
+function userAnswer(c, i) {
+  viewdata["examdata"][c]["result"]["users_Answer"] = viewdata["examdata"][c]["optionsList"][i]["id"]
+
 }
 function datafiller(counter) {
   // let opCounter = 0;
@@ -18,47 +19,52 @@ function datafiller(counter) {
   question.innerHTML = viewdata["examdata"][counter]["question"]["question"]
   // question.innerHTML = viewdata["examdata"][counter]["optionsList"][3]["question"]
 
+  //subid
+  viewdata["examdata"][counter]["result"]["subjectId"] = viewdata["examdata"][counter]["question"]["subjectId"]
+  //queid
+  viewdata["examdata"][counter]["result"]["questionId"] = viewdata["examdata"][counter]["question"]["id"]
+  //answer
+  viewdata["examdata"][counter]["result"]["answer"] = viewdata["examdata"][counter]["question"]["answer"]
+
   for (let i = 0; i < viewdata["examdata"][counter]["optionsList"].length; i++) {
-    document.getElementById(i.toString()).innerHTML = `
-      <label for="${viewdata["examdata"][counter]["optionsList"][i]["option"]}">${viewdata["examdata"][counter]["optionsList"][i]["option"]}</label>
-      <input type="radio" for="${viewdata["examdata"][counter]["result"]["Users_Answer"]} name="${viewdata["examdata"][counter]["question"]["id"]}" value="${viewdata["examdata"][counter]["optionsList"]["Id"]}">
-    `
-    console.log(counter)
-    // con
-    // console.log(viewdata["examdata"][counter]["optionsList"][i]["option"])
-
+    let option = viewdata["examdata"][counter]["optionsList"][i]["option"]
+    let userAns = viewdata["examdata"][counter]["result"]["users_Answer"]
+    let questionId = viewdata["examdata"][counter]["question"]["id"]
+    let optionId = viewdata["examdata"][counter]["optionsList"][i]["id"]
+    if (userAns === optionId) {
+      document.getElementById(i.toString()).innerHTML = `
+    <input type="radio" checked="checked" onclick="userAnswer(${counter},${i})" id="${userAns}" name="${questionId}" value="${optionId}">
+    <label for="${userAns}">${option}</label>
+      `
+    }
+    else {
+      document.getElementById(i.toString()).innerHTML = `
+      <input type="radio" onclick="userAnswer(${counter},${i})" id="${userAns}" name="${questionId}" value="${optionId}">
+      <label for="${userAns}">${option}</label>
+        `
+    }
   }
+  console.log(viewdata["examdata"][counter]["result"])
 
-  // viewdata["examdata"][counter]["optionsList"].forEach(element => {
-  //   optionTag.innerHTML = `
-  // <input for="${element.result.Users_Answer} type="radio" name="${element.QuestionId}" value="${element.Id}">
-  // 						<label for="${element.option}">${element.option}</label>
-  // `
-  // console.log(element.option)
-  // console.log(element)
-  // });
 }
 function nextButtonClicked() {
   counter++
-  displayData(counter)
   datafiller(counter)
-  console.log(counter + "nextfun")
   if (counter > 0) {
     buttonEnabler("prBtn")
   }
-  if (counter < 4) {
+  if (counter < viewdata["examdata"][counter]["question"].length) {
     buttonEnabler("neBtn")
   }
   else {
     buttonDisabler("neBtn")
-    console.log("nextenabler hit")
+    document.getElementById("sub").hidden = false;
   }
 }
 function prewButtonClicked() {
   counter--
-  displayData(counter)
+  document.getElementById("sub").hidden = true;
   datafiller(counter)
-  console.log(counter + "prewfun")
   if (counter < 4) {
     buttonEnabler("neBtn")
   }
@@ -66,7 +72,6 @@ function prewButtonClicked() {
     buttonDisabler("prBtn")
   }
   else {
-    console.log("enabler hit")
     buttonEnabler("prBtn")
   }
 }
@@ -79,10 +84,12 @@ function buttonEnabler(btnname) {
   document.getElementById(btnname).disabled = false;
 }
 
-
 function buttonClickHandler() {
   const xhr = new XMLHttpRequest();
   document.getElementById("fatchBtn").hidden = true
+  document.getElementById("buton").hidden = false
+  document.getElementById("sub").hidden = true;
+
   /*    //
     xhr.onprogress = function () {
         console.log('On progress');
@@ -97,18 +104,12 @@ function buttonClickHandler() {
       // console.log(this.responseText);
 
       // console.log(this.responseText);
-      displayData(0)
       datafiller(0)
-
-      // console.log(viewdata["examdata"][0]["question"]["id"])
     }
     else {
       console.log("some error acuured")
     }
   }
-
-
-
 
   //open the obj
   xhr.open('GET', `Gan.txt`, true);
