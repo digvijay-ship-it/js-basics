@@ -60,6 +60,7 @@ function nextButtonClicked() {
     buttonDisabler("neBtn")
     document.getElementById("sub").hidden = false;
   }
+  console.log(viewdata)
 }
 function prewButtonClicked() {
   counter--
@@ -99,12 +100,8 @@ function buttonClickHandler() {
   xhr.onload = function () {
     if (this.status === 200) {
       viewdata = JSON.parse(this.responseText);
-      // viewdata = jsonData;
-      // console.log("display json", viewdata);
-      // console.log(this.responseText);
-
-      // console.log(this.responseText);
       datafiller(0)
+      console.log(typeof viewdata)
     }
     else {
       console.log("some error acuured")
@@ -121,7 +118,8 @@ function SubmitData() {
   console.log("dataposting")
 
   const pxhr = new XMLHttpRequest();
-  pxhr.getResponseHeader('Content-type', 'application/json');
+  pxhr.setResponseHeader('Content-type', 'application/json');
   pxhr.open('POST', 'pGan.json', true);
+  console.log(JSON.stringify(viewdata));
   pxhr.send(viewdata);
 }
